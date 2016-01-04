@@ -14,7 +14,7 @@ Comments:
 		
 			(math.log( (TR*r1+TE*r2)/(TE*r2) ) -TR*R01)/(TR*r1) --> Check
 
-	and is the value for the signal derivative of the concnetration is zero.
+	and is the value for the signal derivative of the conctration is zero.
 	Thus the maximum signal intensity possible is obtained at the cut-off 
 	concentration, at larger concentration the signal intensities decays.
 	
@@ -56,7 +56,7 @@ def compute_concentration_SE(SI0,SI1,TR,TE,r1,r2,R01,R02,cut_off=True):
 		
 		"""
 		
-		
+
 		R = SI1/SI0
 	
 		R[(R==float('INF')) | (R < 1)]=1  # This will ensure no inf or values less than 1 which would give negative concentration.
@@ -76,10 +76,10 @@ def compute_concentration_SE(SI0,SI1,TR,TE,r1,r2,R01,R02,cut_off=True):
 
 	
 
-	
-		
-		C=sop.fsolve(f,C,args=(R))
-			
+		i_prev=0
+		for i in range(num/100,num,num/100):
+			C[i_prev:i]=sop.fsolve(f,C[i_prev:i],args=(R[i_prev:i]))
+			i_prev=i
 	
 		return C
 
