@@ -15,7 +15,7 @@ from mshr import *
 	
 
 
-def nonlinear_solver(function_space, Nt,T, I  , rho ,gamma,alpha =None ,Dalpha=None, f=None,  method="BE" , user_action=None ,tol=10**(-13), k_max =1000, omega=1.0 ): 
+def nonlinear_solver(function_space, Nt,T, I  , rho ,gamma,alpha=None,Dalpha=None, f=None,  method="BE" , user_action=None ,tol=10**(-13), k_max =1000, omega=1.0 ,BCS=None): 
 	"""
 	==============	 ======================================================
 	Argument                Explanation
@@ -64,8 +64,9 @@ def nonlinear_solver(function_space, Nt,T, I  , rho ,gamma,alpha =None ,Dalpha=N
 
 	u_2 =Function(V)
 	
-	u_1.interpolate(I)
-
+	if I!=None:	
+		u_1.interpolate(I)
+	
 	fn = Function(V)
 	f1 = Function(V)
 
@@ -90,7 +91,8 @@ def nonlinear_solver(function_space, Nt,T, I  , rho ,gamma,alpha =None ,Dalpha=N
 
 	du =Function(V)
 	
-
+	
+		
 
 	for n in time[1::]:
 		u_bar.vector()[:] = u_1.vector()[:] 
@@ -105,7 +107,15 @@ def nonlinear_solver(function_space, Nt,T, I  , rho ,gamma,alpha =None ,Dalpha=N
 		while eps > tol and k< k_max :
 			A = assemble(a)
 			b = assemble(L)
-			solve( A , du.vector(), b )  
+			if BCS !=None :
+				for i in BCS:
+					i.apply(A,b)
+				solve( A , du.vector(), b ,"gmres","amg")  
+
+			else:
+				solve( A , du.vector(), b ,"gmres","amg" )  
+	
+
 			eps =numpy.linalg.norm(u_bar.vector().array()-du.vector().array(), ord=numpy.Inf)
 			u_bar.vector()[:]  = omega*du.vector()[:] +(1-omega)*u_bar.vector()[:]
 			k+=1
