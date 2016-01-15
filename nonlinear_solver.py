@@ -15,7 +15,7 @@ from mshr import *
 	
 
 
-def nonlinear_solver(function_space, Nt,T, I  , rho ,gamma,alpha=None,Dalpha=None, f=None,  method="BE" , user_action=None ,tol=10**(-13), k_max =1000, omega=1.0 ,BCS=None): 
+def nonlinear_solver(function_space, Nt,T, I  , rho ,gamma,alpha=None,Dalpha=None, f=None,  method="BE" , user_action=None ,tol=10**(-10), k_max =100, omega=1.0 ,BCS=None): 
 	"""
 	==============	 ======================================================
 	Argument                Explanation
