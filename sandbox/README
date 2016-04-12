@@ -1,0 +1,10 @@
+
+I've made a simplied version of Lars' solver. 
+
+
+Things to do: 
+ * run freesurfer on Abel (will be needed when we have many patients)  
+ * check out TSD
+ * do a refinement study wrt both space and time  
+ * do a refinement study wrt both space and time with physically correct quantities 
+ * set up a Abel script to run multiple versions of this script with different dt, refimenents etc. 
