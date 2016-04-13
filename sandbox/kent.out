@@ -1,0 +1,87 @@
+Starting job 14378313 ("kent") on c17-8 at on. 13. april 19:26:40 +0200 2016
+pial_mesh.h5
+pial_mesh.xdmf
+test.py
+/work/jobs/14378313.d
+pial_mesh.xdmf
+skipping download
+pial_mesh.h5
+skipping download
+pial_mesh.xdmf
+skipping download
+pial_mesh.h5
+skipping download
+pial_mesh.xdmf
+skipping download
+pial_mesh.h5
+skipping download
+pial_mesh.xdmf
+skipping download
+pial_mesh.h5
+skipping download
+pial_mesh.xdmf
+skipping download
+pial_mesh.h5
+skipping download
+pial_mesh.xdmf
+skipping download
+pial_mesh.h5
+skipping download
+Process 0: Solving linear system of size 831581 x 831581 (PETSc Krylov solver).
+t  0.1
+t  0.1
+t  0.1
+t  0.1
+t  0.1
+t  0.1
+Process 0: Solving linear system of size 831581 x 831581 (PETSc Krylov solver).
+t  0.2
+t  0.2
+t  0.2
+t  0.2
+t  0.2
+t  0.2
+
+Currently Loaded Modulefiles:
+  1) cmake/3.1.0         2) gcc/5.1.0           3) openmpi.gnu/1.8.8
+
+Job script resource usage:
+       JobID  MaxVMSize     MaxRSS 
+------------ ---------- ---------- 
+14378313.ba+  21687760K  14769334K 
+
+Job step resource usage:
+       JobID    JobName  AllocCPUS  MaxVMSize     MaxRSS    Elapsed ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- -------- 
+14378313           kent          6                         00:02:06      0:0 
+
+Job 14378313 ("kent") completed on c17-8 at on. 13. april 19:28:46 +0200 2016
+Starting job 14378328 ("kent") on c17-8 at on. 13. april 19:31:44 +0200 2016
+pial_mesh.h5
+pial_mesh.xdmf
+test.py
+/work/jobs/14378328.d
+pial_mesh.xdmf
+skipping download
+pial_mesh.h5
+skipping download
+pial_mesh.xdmf
+skipping download
+pial_mesh.h5
+skipping download
+pial_mesh.xdmf
+skipping download
+pial_mesh.h5
+skipping download
+pial_mesh.xdmf
+skipping download
+pial_mesh.h5
+skipping download
+pial_mesh.xdmf
+skipping download
+pial_mesh.h5
+skipping download
+pial_mesh.xdmf
+skipping download
+pial_mesh.h5
+skipping download
