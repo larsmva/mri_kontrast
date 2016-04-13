@@ -1,6 +1,17 @@
 
 from dolfin import *
 
+#default values
+No_refinements=0 
+dt_val=0.1 
+#hack to read input arguments 
+import sys
+for s in sys.argv[1:]:
+  exec(s)
+
+print "dt_val ", dt_val, " No_ref ", No_refinements
+
+
 def check_or_download(filename):
   print filename 
   import os

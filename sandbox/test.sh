@@ -17,11 +17,12 @@
 #SBATCH --cpus-per-task=1
 
 #SBATCH --partition=long
-#SBATCH --output=kent.out
+#SBATCH --output=output.$SCRATCH 
 
 ## Set up job environment
 source /cluster/bin/jobsetup
 
+echo $1 $2
 
 #module load gcc/4.9.2
 #module load openmpi.gnu/1.8.4
@@ -38,12 +39,13 @@ cleanup "cp -r $SCRATCH/S1_90deg /usit/abel/u1/kent-and/KENT"
 
 :
 
+echo "SCRATCH is $SCRATCH"
 # Copy necessary files to $SCRATCH
 cp test.py pial_mesh.h5 pial_mesh.xdmf $SCRATCH
 cd $SCRATCH
 ls
 echo $SCRATCH
-mpirun --bind-to none python test.py  
+mpirun --bind-to none python test.py No_refinements=$1 dt_val=$2 
 
 cp $SCRATCH/*xdmf $PWD
 cp $SCRATCH/*h5 $PWD

@@ -8,3 +8,8 @@ Things to do:
  * do a refinement study wrt both space and time  
  * do a refinement study wrt both space and time with physically correct quantities 
  * set up a Abel script to run multiple versions of this script with different dt, refimenents etc. 
+ 
+
+Info on the abel system: 
+https://www.uio.no/english/services/it/research/hpc/abel/help/user-guide/job-scripts.html
+http://www.uio.no/english/services/it/research/hpc/abel/help/faq/
