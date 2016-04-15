@@ -43,5 +43,3 @@ ls
 echo $SCRATCH
 mpirun --bind-to none python test.py No_refinements=$1 dt_val=$2 
 
-cp $SCRATCH/*xdmf $PWD
-cp $SCRATCH/*h5 $PWD
