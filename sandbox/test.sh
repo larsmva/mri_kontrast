@@ -33,11 +33,7 @@ source ~oyvinev/fenics1.6/fenics1.6
 export PYTHONPATH=$PYTHONPATH:$HOME/.local/lib/python2.7/site-packages/
 
 # Define what to do when job is finished (or crashes)
-cleanup "mkdir -p /usit/abel/u1/kent-and/KENT"
-cleanup "cp -r $SCRATCH/Myresults /usit/abel/u1/kent-and/KENT"
-cleanup "cp -r $SCRATCH/S1_90deg /usit/abel/u1/kent-and/KENT"
-
-:
+chkfile U_ref*
 
 echo "SCRATCH is $SCRATCH"
 # Copy necessary files to $SCRATCH
@@ -47,5 +43,3 @@ ls
 echo $SCRATCH
 mpirun --bind-to none python test.py No_refinements=$1 dt_val=$2 
 
-cp $SCRATCH/*xdmf $PWD
-cp $SCRATCH/*h5 $PWD
