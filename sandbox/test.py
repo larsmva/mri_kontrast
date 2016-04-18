@@ -41,7 +41,6 @@ U = Function(V)   # current U
 U_ = Function(V)  # previous U 
 
 c_val = 1.0 
-dt_val = 0.1 
 Tend = 0.2 
 t = 0.0
 c = Constant(c_val)
