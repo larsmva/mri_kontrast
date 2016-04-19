@@ -18,19 +18,17 @@
 ##SBATCH --output=output.$SCRATCH 
 source /cluster/bin/jobsetup
 module load freesurfer
-#chkfile subjects 
+chkfile subjects erika 
 
-export FREESURFER_HOME=$HOME/freesurfer 
-export SUBJECTS_DIR=$SCRATCH
 #export PATH=$FREESURFER_HOME/bin:$PATH
 echo $SCRATCH
 echo `date`
 
-cp -r $FREESURFER_HOME/subjects/MRI_ERIKA $SCRATCH
+cp -r $HOME/erika-T1 $SCRATCH
+cp -r $HOME/erika-T2 $SCRATCH
 ls $SCRATCH 
-ls $SCRATCH/MRI_ERIKA/*
 
-recon-all -subjid erika -i   $SCRATCH/MRI_ERIKA/Dicom/IM_0594  -all 
+recon-all -subjid erika -sd $SCRATCH -i $SCRATCH/erika-T1/IM_0209 -T2 $SCRATCH/erika-T2/IM_0594 -T2pial -all 
 
 
 echo `date`
