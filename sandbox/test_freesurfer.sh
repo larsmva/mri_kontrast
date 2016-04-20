@@ -5,7 +5,7 @@
 # Project:
 #SBATCH --account=nn9279k
 # Wall clock limit:
-#SBATCH --time='06:00:00'
+#SBATCH --time='12:00:00'
 #
 # Max memory usage per task:
 #SBATCH --mem-per-cpu=3800M
@@ -18,6 +18,7 @@
 ##SBATCH --output=output.$SCRATCH 
 source /cluster/bin/jobsetup
 module load freesurfer
+module load fsl
 chkfile subjects erika 
 
 #export PATH=$FREESURFER_HOME/bin:$PATH
