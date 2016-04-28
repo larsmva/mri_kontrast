@@ -1,4 +1,3 @@
-
 from dolfin import *
 
 #default values
@@ -30,8 +29,7 @@ check_or_download("pial_mesh.xdmf")
 check_or_download("pial_mesh.h5")
 mesh = Mesh("pial_mesh.xdmf")
 V = FunctionSpace(mesh, "Lagrange", 1)
-
-No_refinements = 1 
+ 
 for i in range(No_refinements): mesh = refine(mesh) 
 
 u = TrialFunction(V)
@@ -53,9 +51,9 @@ bc = DirichletBC(V, Constant(1.0), bounday)
 
 A = assemble(a)
 
-U_file = File("U_ref%d_dt=%e.xdmf" % (No_refinements, dt))
+U_file = File("U_ref%d_dt=%e.xdmf" % (No_refinements, dt_val))
 
-while t < Tend:
+while t < Tend-dt_val/2:
   t += dt_val 
   bc.apply(A)
   b = assemble(L)
