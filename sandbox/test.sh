@@ -17,7 +17,7 @@
 #SBATCH --cpus-per-task=1
 
 #SBATCH --partition=long
-#SBATCH --output=output.$SCRATCH 
+##SBATCH --output=output.$SCRATCH 
 
 ## Set up job environment
 source /cluster/bin/jobsetup
@@ -33,7 +33,8 @@ source ~oyvinev/fenics1.6/fenics1.6
 export PYTHONPATH=$PYTHONPATH:$HOME/.local/lib/python2.7/site-packages/
 
 # Define what to do when job is finished (or crashes)
-chkfile U_ref*
+cleanup "mkdir -p $HOME/results"
+cleanup "cp -r $SCRATCH/U_ref* $HOME/results" 
 
 echo "SCRATCH is $SCRATCH"
 # Copy necessary files to $SCRATCH
